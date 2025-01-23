@@ -16,10 +16,10 @@ def readjson(path):
 
 writejson(datapath,{"status":"READ","data":["HOME"]})
 
-currentPage = "HOME"
+currentLand = "HOME"
 typing = ""
 
-loadsite = False
+loadLand = False
 
 pgmath = pygame.math
 
@@ -33,14 +33,14 @@ running = True
 pygame.display.set_caption("Address Bar")
 
 def handledata():
-    global currentPage
-    global loadsite
+    global currentLand
+    global loadLand
     global running
     dataread = readjson(datapath)
     if dataread["status"] == "FREE":
-        if loadsite:
-            writejson(datapath,{"status":"READ","data":[currentPage]})
-            loadsite = False
+        if loadLand:
+            writejson(datapath,{"status":"READ","data":[currentLand]})
+            loadLand = False
     if dataread["status"] == "QUIT":
         writejson(datapath,{"status":"OFF"})
         running = False
@@ -137,14 +137,14 @@ while running:
             if event.key == pygame.K_BACKSPACE:
                 typing = typing[:-1]
             if event.key == pygame.K_RETURN:
-                currentPage = typing
-                loadsite = True
+                currentLand = typing
+                loadLand = True
             
     
     screen.fill(pygame.Color(32,0,64))
     
     tempfont = pygame.font.Font("./assets/fonts/arial/arial.ttf",32)
-    temprender = tempfont.render(currentPage, False, pygame.Color(255,255,255))
+    temprender = tempfont.render(currentLand, False, pygame.Color(255,255,255))
     screen.blit(temprender,pgmath.Vector2(0,0))
     
     tempfont = pygame.font.Font("./assets/fonts/arial/arial.ttf",32)

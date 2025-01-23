@@ -35,10 +35,10 @@ def loadJSONfromfile(path):
     rawjson = readjson(path)
     send = rawjson
     if type(rawjson) != str:
-        for key in rawjson["sitedata"]:
-            if type(rawjson["sitedata"][key]) == list:
-                if rawjson["sitedata"][key][0] == "Color":
-                    send["sitedata"][key] = pygame.Color(rawjson["sitedata"][key][1],rawjson["sitedata"][key][2],rawjson["sitedata"][key][3])
+        for key in rawjson["landdata"]:
+            if type(rawjson["landdata"][key]) == list:
+                if rawjson["landdata"][key][0] == "Color":
+                    send["landdata"][key] = pygame.Color(rawjson["landdata"][key][1],rawjson["landdata"][key][2],rawjson["landdata"][key][3])
         for i in range(len(rawjson["elements"])):
             for key in rawjson["elements"][i]:
                 if type(rawjson["elements"][i][key]) == list:
@@ -51,10 +51,8 @@ pgmath = pygame.math
 fonts = {
     "arial":"./assets/fonts/arial/arial.ttf"
 }
-webpageconnected = False
-webpagedata = {}
-
-#print(webpagedata, type(webpagedata))
+landconnected = False
+landdata = {}
 
 pygame.init()
 screen = pygame.display.set_mode((xsize,ysize))
@@ -64,18 +62,18 @@ running = True
 def handledata():
     global running
     global site
-    global webpageconnected
-    global webpagedata
+    global landconnected
+    global landdata
     dataread = readjson(datapath)
     if dataread["status"] == "QUIT":
         writejson(datapath,{"status":"OFF"})
         running = False
     if dataread["status"] == "READ":
-        webpagedata = loadJSONfromfile("./Lands/"+dataread["data"][0]+"/main.json")
-        if webpagedata == "NOTREAL":
-            webpageconnected = False
+        landdata = loadJSONfromfile("./Lands/"+dataread["data"][0]+"/main.json")
+        if landdata == "NOTREAL":
+            landconnected = False
         else:
-            webpageconnected = True
+            landconnected = True
         writejson(datapath,{"status":"FREE"})
         
 
@@ -88,24 +86,24 @@ while running:
     
     
     #compile onscreen data
-    if webpageconnected:
-        defaultcolor = webpagedata["sitedata"].get("colr",pygame.Color(0,0,0))
-        background   = webpagedata["sitedata"].get("back",pygame.Color(255,255,255))
-        defaultfont  = webpagedata["sitedata"].get("font","arial")
-        pagename     = webpagedata["sitedata"].get("name","untitled STKN")
+    if landconnected:
+        defaultcolor = landdata["landdata"].get("colr",pygame.Color(0,0,0))
+        background   = landdata["landdata"].get("back",pygame.Color(255,255,255))
+        defaultfont  = landdata["landdata"].get("font","arial")
+        pagename     = landdata["landdata"].get("name","untitled STKN")
     else:
         defaultcolor = pygame.Color(0,0,0)
         background   = pygame.Color(255,255,255)
         defaultfont  = "arial"
-        pagename     = "untitled STKN"
+        pagename     = "untitled Land"
     screen.fill(background)
     pygame.display.set_caption(pagename)
     #draw here tupid
     verticalOffset=0
-    if webpageconnected:
+    if landconnected:
         i2 = 0
-        for pagedata in webpagedata["elements"]: #drawloop
-            if webpagedata["elements"][i2]["type"] == "text":
+        for pagedata in landdata["elements"]: #drawloop
+            if landdata["elements"][i2]["type"] == "text":
                 text = pagedata.get("text","MISSING TEXT DATA")
                 font = pagedata.get("font","arial")
                 size = pagedata.get("size",16)
