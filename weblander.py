@@ -90,11 +90,13 @@ while running:
         defaultcolor = landdata["landdata"].get("colr",pygame.Color(0,0,0))
         background   = landdata["landdata"].get("back",pygame.Color(255,255,255))
         defaultfont  = landdata["landdata"].get("font","arial")
+        defaultsize  = landdata["landdata"].get("size",16)
         pagename     = landdata["landdata"].get("name","untitled STKN")
     else:
         defaultcolor = pygame.Color(0,0,0)
         background   = pygame.Color(255,255,255)
         defaultfont  = "arial"
+        defaultsize  = 16
         pagename     = "untitled Land"
     screen.fill(background)
     pygame.display.set_caption(pagename)
@@ -105,8 +107,8 @@ while running:
         for pagedata in landdata["elements"]: #drawloop
             if landdata["elements"][i2]["type"] == "text":
                 text = pagedata.get("text","MISSING TEXT DATA")
-                font = pagedata.get("font","arial")
-                size = pagedata.get("size",16)
+                font = pagedata.get("font",defaultfont)
+                size = pagedata.get("size",defaultsize)
                 colr = pagedata.get("colr",defaultcolor)
                 tempfont = pygame.font.Font(fonts[font],size)
                 temprender = tempfont.render(text, False, colr)
