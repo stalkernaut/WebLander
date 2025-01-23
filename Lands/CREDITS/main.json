@@ -2,29 +2,65 @@
 	"landdata":{
         "back": ["Color",32,0,64],
         "colr": ["Color",255,255,255],
-        "font":"arial",
-        "name":"WebLander Credits"
+        "font":	"arial",
+        "name":	"WebLander Credits",
+		"padd":	4
     },
     "elements":[
-        {
-			"type":"text",
-			"text":"Program made by: Stalkernaut",
-			"size":24
-        },
 		{
 			"type":"text",
-			"text":"Name made by: Peabody",
-			"size":24
+			"text":"Credits",
+			"size":45
+		},
+		{
+			"type":"padd",
+			"size":8
+		},
+		{
+			"type":"line",
+			"size":4,
+			"padd":0,
+			"colr": ["Color",64,0,128]
         },
 		{
-			"type":"text",
-			"text":"Coded in: Python",
-			"size":24
+			"type":"line",
+			"size":4,
+			"padd":0,
+			"colr": ["Color",128,0,255]
         },
 		{
-			"type":"text",
-			"text":"With the use of: Pygame",
-			"size":24
+			"type":"line",
+			"size":4,
+			"padd":0,
+			"colr": ["Color",255,255,255]
+        },
+		{
+			"type":"padd",
+			"size":8
+		},
+		{
+			"type":"mctx",
+			"text":["Program made by: ","Stalkernaut"],
+			"size":24,
+			"colr":[["Color",255,255,255],["Color",128,0,255]]
+        },
+		{
+			"type":"mctx",
+			"text":["Name made by: ","Peabody"],
+			"size":24,
+			"colr":[["Color",255,255,255],["Color",128,0,255]]
+        },
+		{
+			"type":"mctx",
+			"text":["Coded in: ","Python"],
+			"size":24,
+			"colr":[["Color",255,255,255],["Color",128,0,255]]
+        },
+		{
+			"type":"mctx",
+			"text":["With the use of: ","Pygame"],
+			"size":24,
+			"colr":[["Color",255,255,255],["Color",128,0,255]]
         }
     ]
 }

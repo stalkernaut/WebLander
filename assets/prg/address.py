@@ -26,7 +26,7 @@ pgmath = pygame.math
 xsize = 1024
 ysize = 64
 pygame.init()
-screen = pygame.display.set_mode((1024, 64))
+screen = pygame.display.set_mode((1024, 32))
 clock = pygame.time.Clock()
 running = True
 
@@ -41,6 +41,7 @@ def handledata():
         if loadLand:
             writejson(datapath,{"status":"READ","data":[currentLand]})
             loadLand = False
+        
     if dataread["status"] == "QUIT":
         writejson(datapath,{"status":"OFF"})
         running = False
@@ -133,6 +134,8 @@ while running:
                 typing += ":"
             if event.key == pygame.K_MINUS:
                 typing += "-"
+            if event.key == pygame.K_SLASH:
+                typing += "/"
             
             if event.key == pygame.K_BACKSPACE:
                 typing = typing[:-1]
@@ -143,14 +146,11 @@ while running:
     
     screen.fill(pygame.Color(32,0,64))
     
-    tempfont = pygame.font.Font("./assets/fonts/arial/arial.ttf",32)
-    temprender = tempfont.render(currentLand, False, pygame.Color(255,255,255))
+    tempfont = pygame.font.Font("./assets/fonts/arial/arial.ttf",16)
+    temprender = tempfont.render(currentLand, True, pygame.Color(255,255,255))
     screen.blit(temprender,pgmath.Vector2(0,0))
-    
-    tempfont = pygame.font.Font("./assets/fonts/arial/arial.ttf",32)
-    temprender = tempfont.render(">"+typing, False, pygame.Color(255,255,255))
-    screen.blit(temprender,pgmath.Vector2(0,32))
-    
+    temprender = tempfont.render(">"+typing, True, pygame.Color(255,255,255))
+    screen.blit(temprender,pgmath.Vector2(0,16))
     pygame.display.flip()
 
     clock.tick(10)

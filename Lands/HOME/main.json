@@ -7,20 +7,46 @@
     },
     "elements":[
         {
-			"type":"text",
-			"text":"Welcome to WebLander",
-			"size":45
+			"type":"mctx",
+			"text":["Welcome to ","WebLander"],
+			"size":45,
+			"colr":[["Color",255,255,255],["Color",128,0,255]]
         },
 		{
-			"type":"break",
-			"size":16
+			"type":"padd",
+			"size":8
+		},
+		{
+			"type":"line",
+			"size":4,
+			"padd":0
         },
+		{
+			"type":"line",
+			"size":4,
+			"padd":0,
+			"colr": ["Color",128,0,255]
+        },
+		{
+			"type":"line",
+			"size":4,
+			"padd":0,
+			"colr": ["Color",64,0,128]
+        },
+		{
+			"type":"padd",
+			"size":8
+		},
         {
 			"type":"text",
 			"text":"Please enter an address on the address panel",
 			"size":24,
 			"colr": ["Color",128,0,255]
         },
+		{
+			"type":"padd",
+			"size":400
+		},
         {
 			"type":"text",
 			"text":"Goto CREDITS to see who helped make this!",

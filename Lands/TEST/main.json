@@ -1,0 +1,15 @@
+{
+	"landdata":{
+	},
+	"elements":[
+		{
+			"type":"text",
+			"text":"test"
+		},
+		{
+			"type":"mctx",
+			"text":["H","E","L","L","O","!"],
+			"colr":[["Color",255,0,0],["Color",255,255,0],["Color",0,255,0],["Color",0,255,255],["Color",0,0,255],["Color",255,0,255]]
+		}
+	]
+}
