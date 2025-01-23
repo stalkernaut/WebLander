@@ -3,13 +3,17 @@
         "back": ["Color",32,0,64],
         "colr": ["Color",255,255,255],
         "font":"arial",
-        "name":"STKN Home"
+        "name":"WebLander Home"
     },
     "elements":[
         {
 			"type":"text",
 			"text":"Welcome to WebLander",
 			"size":45
+        },
+		{
+			"type":"break",
+			"size":16
         },
         {
 			"type":"text",
@@ -19,7 +23,7 @@
         },
         {
 			"type":"text",
-			"text":"made by stalkernaut <3",
+			"text":"Goto CREDITS to see who helped make this!",
 			"size":16
         }
     ]

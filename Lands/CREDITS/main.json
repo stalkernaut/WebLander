@@ -1,0 +1,30 @@
+{
+	"sitedata":{
+        "back": ["Color",32,0,64],
+        "colr": ["Color",255,255,255],
+        "font":"arial",
+        "name":"WebLander Credits"
+    },
+    "elements":[
+        {
+			"type":"text",
+			"text":"Program made by: Stalkernaut",
+			"size":24
+        },
+		{
+			"type":"text",
+			"text":"Name made by: Peabody",
+			"size":24
+        },
+		{
+			"type":"text",
+			"text":"Coded in: Python",
+			"size":24
+        },
+		{
+			"type":"text",
+			"text":"With the use of: Pygame",
+			"size":24
+        }
+    ]
+}
