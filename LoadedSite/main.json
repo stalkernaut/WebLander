@@ -1,0 +1,26 @@
+{
+	"sitedata":{
+        "back": ["Color",32,0,64],
+        "colr": ["Color",255,255,255],
+        "font":"arial",
+        "name":"STKN Home"
+    },
+    "elements":[
+        {
+			"type":"text",
+			"text":"Welcome to WebLander",
+			"size":45
+        },
+        {
+			"type":"text",
+			"text":"Please enter an address on the address panel",
+			"size":24,
+			"colr": ["Color",128,0,255]
+        },
+        {
+			"type":"text",
+			"text":"made by stalkernaut <3",
+			"size":16
+        }
+    ]
+}
